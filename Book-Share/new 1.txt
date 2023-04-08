@@ -1,0 +1,67 @@
+<?php
+$con=mysqli_connect("localhost","root","","admin");
+$phone_no=$_GET['phone_no'];
+$del=mysqli_query($con,"delete from registeration_form where phone_no='$phone_no'");
+if($del)
+
+ {   
+	  header("location:home.php");   
+  }
+  else{
+	  echo "not matched";
+  }
+
+
+
+?>
+
+
+
+
+
+<?php
+$con=mysqli_connect("localhost","root","","book_bank");
+if(isset($_POST['btn1']))
+{ 
+  $name= $_POST['user_email'];
+  $pass=$_POST['Password'];
+  $sql=mysqli_query($con ,"select * from user_signin");
+  $arr=mysqli_fetch_array($sql);
+  if($name==$arr['E-mail']&&$pass==$arr['Password'])
+  {   echo "WELCOME" .$arr['E-mail'];
+	 // header("location:home.php");   
+  }
+  else{
+	  echo "not matched";
+  }
+
+
+}  
+?>
+<!--For User Sign-in -->
+<?php
+$conn=mysqli_connect("localhost","root","","book_bank");
+if(isset($_POST['btn2']))
+{
+	$name=$_POST['name'];
+    $email=$_POST['email'];
+	$password=$_POST['password'];
+	
+	$query="insert into user_signin(Name,E-mail,Password) 
+	        value('$name','$email','$password')";
+	$rum=mysqli_query($conn,$query);
+	if($rum)
+	{
+		echo "Success";
+	}
+	else
+	
+	{
+		echo "something wrong";
+		
+	}
+}
+
+
+
+?>

@@ -1,0 +1,11 @@
+.header{
+	background-color: rgba(60, 60, 60,0.4);
+	text-align:center;
+	padding:35px;
+
+	color: white;
+	width:100%;
+	font-family: "Times New Roman", Times, serif;
+	z-index:900;
+
+}
